@@ -4,7 +4,7 @@ import { RemItemPopup } from "./itemsComponents/RemItemPopup";
 import { EdiItemPopup } from "./itemsComponents/EdiItemPopup";
 import { Item } from "./itemsComponents/Item";
 import "./RestaurantMenu.scss"
-import Button from 'react-bootstrap/Button';
+import PrimaryButton from "../../components/atoms/primary-button/PrimaryButton";
 
 export const RestaurantMenu = () => {
     const [items, setItems] = useState([]);
@@ -25,9 +25,7 @@ export const RestaurantMenu = () => {
             <RemItemPopup show={remItemToggle[0]} item={remItemToggle[1]} onHide={() => setRemItemToggle(false)}/>
             <EdiItemPopup show={ediItemToggle[0]} item={ediItemToggle[1]} onHide={() => setEdiItemToggle(false)}/>
 
-            <Button variant='primary' onClick={() => setAddItemToggle(true)}>
-                Adicionar
-            </Button>
+            <PrimaryButton buttonContent='Adicionar' onClick={() => setAddItemToggle(true)}></PrimaryButton>
 
             <div className="item-cards">
                 {
