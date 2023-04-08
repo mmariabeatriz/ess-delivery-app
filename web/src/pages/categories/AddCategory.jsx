@@ -46,7 +46,7 @@ export default function AddCategory() {
     } else {
       let category = { id: Date.now(), name: newCategory };
 
-      await fetch("http://localhost:3001/categories", {
+      await fetch(url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -84,31 +84,11 @@ export default function AddCategory() {
             />
           </label>
           <PrimaryButton buttonContent='Cancelar' type="button" onClick={handleCancelClick} data-testid="cancel-button"></PrimaryButton>
-          <PrimaryButton buttonContent='Confirmar categoria' type="submit" data-testid="create-category-button"></PrimaryButton>
+            <PrimaryButton buttonContent='Confirmar categoria' type="submit" onClick={handleConfirmClick} data-testid="create-category-button"></PrimaryButton>
         </form>
       )}
       {warningMessage && <p>{warningMessage}</p>}
       </div>
     </div>
-    // <div>
-    //   <h1>Categories</h1>
-    //   <PrimaryButton buttonContent='Adicionar categoria'  onClick={handleAddCategoryClick} data-testid="add-category-button"></PrimaryButton>
-    //   {showForm && (
-    //     <form onSubmit={handleConfirmClick}>
-    //       <label>
-    //         Category name:
-    //         <input
-    //           type="text"
-    //           value={newCategory}
-    //           onChange={handleNewCategoryChange}
-    //           data-testid="add-category-input"
-    //         />
-    //       </label>
-    //       <PrimaryButton buttonContent='Cancelar' type="button" onClick={handleCancelClick} data-testid="cancel-button"></PrimaryButton>
-    //       <PrimaryButton buttonContent='Confirmar categoria' type="submit" data-testid="create-category-button"></PrimaryButton>
-    //     </form>
-    //   )}
-    //   {warningMessage && <p>{warningMessage}</p>}
-    // </div>
   );
 }
